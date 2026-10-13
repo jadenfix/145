@@ -10,6 +10,8 @@ jobs:
       OMP_NUM_THREADS: '1'
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Install narrow research dependencies
         run: |
           sudo apt-get update
