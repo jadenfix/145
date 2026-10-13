@@ -1,0 +1,92 @@
+{
+  "source_commit": "6c08442038270316187dab6d9fbf26228b5b8fe3",
+  "source_tree": "f2fdd644b2d8b23edc1c5d77ddd5bdd5fcc7d28d",
+  "scope": "Committed-data educational monthly-alignment replay; no forecasting, trading, or performance claim.",
+  "study_rows": 768,
+  "study_start": "1960-01-01",
+  "study_end": "2023-12-01",
+  "runtime_inputs": [
+    {
+      "path": "one45.csv",
+      "git_blob": "9a10649328d7c8c8befe3bce51f2a9d61119b47c"
+    },
+    {
+      "path": "temporal_inputs.R",
+      "git_blob": "cf12c33470f1ca77495bcc8f47a6f9facd9e19e9"
+    },
+    {
+      "path": "run_regime_core.R",
+      "git_blob": "2d1f16d65a65d88ad66221563a21a00a919bf28d"
+    },
+    {
+      "path": "test_temporal.R",
+      "git_blob": "c85da7b0c138cf79b922d810230b3000affd91da"
+    },
+    {
+      "path": "scripts/write_alignment_receipt.R",
+      "git_blob": "52d867337a6697952a67a9cfc58a3a5e42a534e2"
+    },
+    {
+      "path": "scripts/generate_demo.py",
+      "git_blob": "b9b2dad0f9cdb8bbf1bda4fc3e788f059e1603fc"
+    }
+  ],
+  "alignment_summary": [
+    {
+      "lag_months": 1,
+      "observations": 767,
+      "target_start": "1960-02-01",
+      "target_end": "2023-12-01",
+      "predictor_start": "1960-01-01",
+      "predictor_end": "2023-11-01"
+    },
+    {
+      "lag_months": 2,
+      "observations": 766,
+      "target_start": "1960-03-01",
+      "target_end": "2023-12-01",
+      "predictor_start": "1960-01-01",
+      "predictor_end": "2023-10-01"
+    },
+    {
+      "lag_months": 3,
+      "observations": 765,
+      "target_start": "1960-04-01",
+      "target_end": "2023-12-01",
+      "predictor_start": "1960-01-01",
+      "predictor_end": "2023-09-01"
+    },
+    {
+      "lag_months": 4,
+      "observations": 764,
+      "target_start": "1960-05-01",
+      "target_end": "2023-12-01",
+      "predictor_start": "1960-01-01",
+      "predictor_end": "2023-08-01"
+    }
+  ],
+  "summary_csv": {
+    "path": "docs/demo/alignment-summary.csv",
+    "sha256": "00ee99317ffb6a8643640411538dbc5fdd6d00f663a257952d9447e685dcc7fe"
+  },
+  "artifacts": [
+    {
+      "path": "docs/demo/calendar-safe-lags.gif",
+      "sha256": "97555d969c919fc4e664a64dd941469d7d4bcabf26038d536f82744ea73781f9",
+      "bytes": 197593,
+      "frames": 130
+    },
+    {
+      "path": "docs/demo/calendar-safe-lags.mp4",
+      "sha256": "b59462fbd2c6a3262751de9c5ff6ae2c81a4bdc789db83a4de587e621e949fdb",
+      "bytes": 117275,
+      "frames": 130
+    },
+    {
+      "path": "docs/demo/poster.png",
+      "sha256": "01a37838733ebc8c3612d907800d54eba32b7db6121ac66ad4cb2b0500ce7d04",
+      "bytes": 29935,
+      "frames": 1
+    }
+  ]
+}

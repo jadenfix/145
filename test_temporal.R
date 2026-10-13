@@ -20,4 +20,14 @@ for (lag in 1:4) {
 }
 failed <- tryCatch({past_inputs(price,rev(dates),1);FALSE},error=function(e) TRUE)
 stopifnot(failed)
-cat('Past-only alignment and future perturbation checks passed\n')
+missing_month <- dates[-3]
+missing_price <- price[-3]
+failed_gap <- tryCatch({past_inputs(missing_price,missing_month,1);FALSE},error=function(e) grepl('Consecutive monthly dates required',conditionMessage(e)))
+stopifnot(failed_gap)
+
+summary <- alignment_summary(price,dates,1:4)
+stopifnot(identical(summary$observations,5:2))
+stopifnot(all(summary$lag_months==1:4))
+stopifnot(as.character(summary$target_start[[1L]])=='2020-02-01')
+stopifnot(as.character(summary$predictor_end[[4L]])=='2020-02-01')
+cat('Past-only alignment, calendar continuity and future perturbation checks passed\n')

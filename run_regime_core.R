@@ -44,7 +44,8 @@ for (expression in expressions) {
 if (past_only) {
   price <- as.numeric(xts$realprice)
   dates <- as.Date(index(xts))
-  if (is.unsorted(dates) || anyDuplicated(dates)) stop('Expected unique chronological dates')
+  validate_monthly_dates(dates)
+  write.csv(alignment_summary(price,dates,1:4),file.path(outdir,'alignment-summary.csv'),row.names=FALSE)
   for (lag in 1:4) {
     aligned <- past_inputs(price,dates,lag)
     write.csv(aligned,file.path(outdir,paste0('past-lag',lag,'-inputs.csv')),row.names=FALSE)
