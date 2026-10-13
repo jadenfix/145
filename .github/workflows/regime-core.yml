@@ -15,7 +15,7 @@ jobs:
       - name: Install narrow research dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends r-base-core r-cran-xts r-cran-dplyr r-cran-knitr r-cran-urca r-cran-nlme
+          sudo apt-get install -y --no-install-recommends r-base-core r-cran-xts r-cran-dplyr r-cran-knitr r-cran-urca r-cran-nlme ffmpeg python3-pil
           mkdir -p "$R_LIBS_USER"
           Rscript -e 'install.packages("MSwM",repos="https://cloud.r-project.org",dependencies=FALSE)'
       - run: Rscript test_temporal.R
@@ -23,7 +23,6 @@ jobs:
       - run: Rscript run_regime_core.R --past-only
       - name: Verify source-pinned demo
         run: |
-          sudo apt-get install -y --no-install-recommends ffmpeg python3-pil
           if ! verification="$(python3 scripts/verify_demo.py 2>&1)"; then
             echo "::error file=scripts/verify_demo.py,line=1::${verification//$'\n'/'%0A'}"
             exit 1
