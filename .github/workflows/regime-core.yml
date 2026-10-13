@@ -22,5 +22,9 @@ jobs:
       - name: Verify source-pinned demo
         run: |
           sudo apt-get install -y --no-install-recommends ffmpeg python3-pil
-          python3 scripts/verify_demo.py
+          if ! verification="$(python3 scripts/verify_demo.py 2>&1)"; then
+            echo "::error file=scripts/verify_demo.py,line=1::${verification//$'\n'/'%0A'}"
+            exit 1
+          fi
+          echo "$verification"
           git diff --exit-code
