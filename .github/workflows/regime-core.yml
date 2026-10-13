@@ -19,3 +19,8 @@ jobs:
       - run: Rscript test_temporal.R
       - run: Rscript run_regime_core.R
       - run: Rscript run_regime_core.R --past-only
+      - name: Verify source-pinned demo
+        run: |
+          sudo apt-get install -y --no-install-recommends ffmpeg python3-pil
+          python3 scripts/verify_demo.py
+          git diff --exit-code
